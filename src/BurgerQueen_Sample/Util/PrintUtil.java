@@ -1,8 +1,8 @@
-package Product.Util;
+package BurgerQueen_Sample.Util;
 
-import Product.Cart.CartItem;
-import Product.Product;
-import Product.SubProduct.*;
+import BurgerQueen_Sample.Cart.CartItem;
+import BurgerQueen_Sample.Product;
+import BurgerQueen_Sample.SubProduct.*;
 
 
 import java.util.ArrayList;

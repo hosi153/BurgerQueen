@@ -1,14 +1,12 @@
-package sample;
+package BurgerQueen_Sample;
 
-
-import Product.BurgerQueen;
 
 public class Main {
     public static void main(String[] args) {
 
 
         System.out.println("테스트");
-        System.out.println("커밋");
+        System.out.println();
         BurgerQueen burgerQueen = new BurgerQueen();
         burgerQueen.moveToMainMenu();
 

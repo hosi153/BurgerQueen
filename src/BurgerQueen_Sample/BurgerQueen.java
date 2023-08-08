@@ -1,8 +1,8 @@
-package Product;
+package BurgerQueen_Sample;
 
-import Product.Cart.CartService;
-import Product.SubProduct.ProductData;
-import Product.Util.PrintUtil;
+import BurgerQueen_Sample.Cart.CartService;
+import BurgerQueen_Sample.SubProduct.ProductData;
+import BurgerQueen_Sample.Util.PrintUtil;
 
 import java.util.Map;
 import java.util.Scanner;

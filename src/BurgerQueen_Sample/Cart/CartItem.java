@@ -1,4 +1,4 @@
-package Product.Cart;
+package BurgerQueen_Sample.Cart;
 
 public class CartItem {
 

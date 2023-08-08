@@ -1,6 +1,6 @@
-package Product.SubProduct;
+package BurgerQueen_Sample.SubProduct;
 
-import Product.Product;
+import BurgerQueen_Sample.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;

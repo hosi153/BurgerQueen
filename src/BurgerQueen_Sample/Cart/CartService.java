@@ -1,11 +1,10 @@
-package Product.Cart;
+package BurgerQueen_Sample.Cart;
 
-import Product.Product;
+import BurgerQueen_Sample.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class CartService {
 
