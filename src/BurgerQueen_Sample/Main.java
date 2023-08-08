@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println("테스트");
+        System.out.println("테스트33");
         System.out.println();
         BurgerQueen burgerQueen = new BurgerQueen();
         burgerQueen.moveToMainMenu();
