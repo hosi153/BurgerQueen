@@ -2,6 +2,8 @@ import Product.BurgerQueen;
 
 public class Main {
     public static void main(String[] args) {
+        //testtest
+
         /*
         * 1. 상품 관련 객체 제작
         *   상위 클래스 - Product
