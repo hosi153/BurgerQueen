@@ -12,9 +12,11 @@ public class Product {
     private boolean isOption;
 
     //할인 관련 필드
-    private int discountCost;
-    private boolean isPercent;
-    private int realCost;
+    private int discountCost; // 할인 금액 필드 ( 퍼센트 반영 유무 관계없이 입력)
+    private boolean isPercent; // 퍼센트 적용 유무 필드 ( true - 할인 퍼센트에 맞게 계산 , 금액 표기에 % 표기 )
+    private int realCost; // cost 에서 할인액이 반영된 실제 계산 금액
+
+
 
     // 생성자 생성
     //Product 타입 객체 생성
@@ -37,8 +39,8 @@ public class Product {
         this.discountCost= discountCost;
         this.isPercent = isPercent;
 //        this.realCost = (int)(cost - discountCost) ;x
-        if (isPercent){this.realCost = cost - (cost*discountCost/100);}
-        else {this.realCost = cost - discountCost;}
+        if (isPercent){this.realCost = cost - (cost*discountCost/100);}  // 퍼센트 적용시 할인률이 적용된 금액 반환
+        else {this.realCost = cost - discountCost;}  //퍼센트 미적용시 cost에서 할인액 바로 차감 후 반환
 
 
     }

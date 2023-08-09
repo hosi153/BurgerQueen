@@ -32,9 +32,9 @@ public class CartService {
         items.add( new CartItem( product.getId(),
                 product.getName(),
                 product.getCost(),
-                (int) product.getDiscountCost(),
-                product.getRealCost(),
-                count,product.getIsPercent())
+                product.getDiscountCost(),  // 할인 액 표기
+                product.getRealCost(),      // 실제 결제 금액
+                count,product.getIsPercent())   // 퍼센트 적용 유무 표기
                 );
         //CartItem 형 items 배열에 CartItem 객체 생성하기
         // Product 형 자료들을 저장

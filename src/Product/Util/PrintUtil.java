@@ -70,15 +70,21 @@ public class PrintUtil {
     // 카테고리 구분 및 메뉴 출력
 
     public static String printDiscount() {
+        //할인 금액 표시를 위한 메소드
+        // BurgerQueen 클래스에서 사용하기 위해 public
+
         System.out.println("상품 할인 정보");
         for (Product product : ProductData.getDisconutInfo()) {
-
+            // Product 형 객체를 순회하기 위해 product 매개변수
+            // ProductData 클래스에서 getDiscountInfo 메서드의 반환값인 Arraylist를 순회한다.
             System.out.printf("  %5s \t", product.getName());
-
-            if (product.getIsPercent()) {
+            // 상품 명 출력
+            if (product.getIsPercent()) { // ArrayList의 product객체의 퍼센트 적용 유무에 따라 표시 방법 변경
                 System.out.printf("%d%%\t 할인 \n", product.getDiscountCost());
+                // 퍼센트 적용 객체는 할인률 표시
             } else {
                 System.out.printf("%d원 할인 \n", product.getDiscountCost());
+                // 퍼센트 미적용 객체는 할인액 표시
             }
 
         }
@@ -174,11 +180,10 @@ public class PrintUtil {
                     cartItem.getProductName(),  //이름
                     cartItem.getCost()         //단가
                     ); //순회하는 cartItem 필드 출력
-            if (cartItem.isPercent()) {
-                System.out.printf("%6d원", (cartItem.getDiscountCost() * cartItem.getCost() / 100));
-            } else {
-                System.out.printf("%6d원", cartItem.getDiscountCost());
-            }
+            if (cartItem.isPercent()) {System.out.printf("%6d원", (cartItem.getDiscountCost() * cartItem.getCost() / 100));}
+            // 퍼센트 적용 필드에서 할인률에 따른 할인 금액 계산 후 출력
+            else {System.out.printf("%6d원", cartItem.getDiscountCost());}
+            //퍼센트 미적용 필드에서 할인액 바로 출력
             System.out.printf(" %6d원 %6d %6d원\n",
                     cartItem.getRealCost(),     //소비자가
                     cartItem.getCount(),        //수량

@@ -117,12 +117,19 @@ public class ProductData {
         return  option;
     } // getOption 종료
     public static ArrayList<Product> getDisconutInfo(){
+        // 할인 정보 반환을 위한 메소드 생성
+        // PrintUtil에서 사용하기 위해 public 사용
         ArrayList<Product> discount = new ArrayList<>();
+        //Product 형의 ArrayList를 받기 위한 ArrayList 생성
         for (Product product : products){
+            //Product 형의 ArrayList 순회
             if (product.getDiscountCost()!=0){
+                // product 객체의 할인액 (getDiscountCost)이  0이 아닌 경우 출력
             discount.add(product);}
+            // 조건에 맞는 자료를 새로 만든 ArrayList에 저장한다.
         }
         return discount;
+        // 저장된 할인 가능 상품의 ArrayList를 반환
     }
 
 
