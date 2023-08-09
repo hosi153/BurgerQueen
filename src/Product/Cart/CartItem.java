@@ -9,15 +9,21 @@ public class CartItem {
     private final int cost;
     private final int count;
     private final int totalPrice;
+    private final int discountCost;
+    private final int realCost;
+    private final boolean isPercent;
 
     // 장바구니 구현을 위한 생성자 제작
 
-    public CartItem (int productId, String productName, int cost, int count){
+    public CartItem (int productId, String productName, int cost, int discountCost, int realCost, int count, boolean isPercent){
         this.productId = productId;
         this.productName=productName;
         this.cost=cost;
+        this.discountCost = discountCost;
+        this.realCost = realCost;
         this.count=count;
-        this.totalPrice = cost*count; // 총 금액은 생성자로 입력받지 않고 자체 계산
+        this.totalPrice = realCost*count; // 총 금액은 생성자로 입력받지 않고 자체 계산
+        this.isPercent=isPercent;
 
     }
 
@@ -41,5 +47,17 @@ public class CartItem {
 
     public int getTotalPrice() {
         return totalPrice;
+    }
+
+    public int getDiscountCost() {
+        return discountCost;
+    }
+
+    public int getRealCost() {
+        return realCost;
+    }
+
+    public boolean isPercent() {
+        return isPercent;
     }
 }

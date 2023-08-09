@@ -37,6 +37,7 @@ public class BurgerQueen {
                 moveToCart();
                 break;
             case"3": // 할인 정보 출력
+                disconutInformation();
                 break;
             case"4": //서비스 종료
                 System.out.println("서비스 종료");
@@ -72,7 +73,6 @@ public class BurgerQueen {
             int count = sc.nextInt();
             // 장바구니에 상품 추가
             Map<String , Object > result = cartService.addToCart(product, count);
-
 
 
             //추가 성공 메시지 출력
@@ -112,6 +112,21 @@ public class BurgerQueen {
 
     }//moveToCart 종료
 
+
+    private void disconutInformation(){
+
+        String number = PrintUtil.printDiscount();
+        switch (number){
+            case "1":
+                moveToMainMenu();
+            default:
+                System.out.println("잘못 입력했습니다.");
+                disconutInformation();
+
+
+        }
+
+    }
 
     private void deleteCartItem() {
         System.out.print("삭제할 상품의 번호를 입력해주세요 : ");

@@ -7,10 +7,12 @@ public class Drink extends Product {
     // Product 클래스 상속
     // Product 타입의 음료 자료 생성
 
-    public Drink(int id, String name, int cost, int kcal, boolean isOption){
-        super(id,name,cost,kcal,isOption); //Product 메뉴의 생성자 상속
+    public Drink(int id, String name, int cost, int kcal, boolean isOption, int discountCost, boolean isPercent) {
+        super(id, name, cost, kcal, isOption, discountCost, isPercent);
+        //Product 메뉴의 생성자 상속
         //super로 Product 생성자 및 파리미터 그대로 사용
     }
+
 
 
 }

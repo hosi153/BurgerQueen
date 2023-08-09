@@ -11,6 +11,43 @@ public class Product {
     private int kcal;
     private boolean isOption;
 
+    //할인 관련 필드
+    private int discountCost;
+    private boolean isPercent;
+    private int realCost;
+
+    // 생성자 생성
+    //Product 타입 객체 생성
+    // id , 이름, 칼로리, 가격, 옵션유무 단위 저장
+    //
+//    public Product(int id, String name,int cost,int kcal,boolean isOption){
+//        this.id = id;
+//        this.name = name;
+//        this.cost=cost;
+//        this.kcal=kcal;
+//        this.isOption=isOption;
+//    }
+
+    public Product(int id, String name, int cost, int kcal, boolean isOption, int discountCost,  boolean isPercent) {
+        this.id = id;
+        this.name = name;
+        this.cost = cost;
+        this.kcal = kcal;
+        this.isOption = isOption;
+        this.discountCost= discountCost;
+        this.isPercent = isPercent;
+//        this.realCost = (int)(cost - discountCost) ;x
+        if (isPercent){this.realCost = cost - (cost*discountCost/100);}
+        else {this.realCost = cost - discountCost;}
+
+
+    }
+
+    public boolean getIsPercent(){
+        return isPercent;
+    }
+
+
     //식별 필드에 접근하기 위한 getter setter 작성
 
     public int getId(){
@@ -50,15 +87,28 @@ public class Product {
         return isOption;
     }
 
-    // 생성자 생성
-    //Product 타입 객체 생성
-    // id , 이름, 칼로리, 가격, 옵션유무 단위 저장
-    //
-    public Product(int id, String name,int cost,int kcal,boolean isOption){
-        this.id = id;
-        this.name = name;
-        this.cost=cost;
-        this.kcal=kcal;
-        this.isOption=isOption;
+
+
+
+
+
+
+
+
+    public int getRealCost() {
+        return realCost;
     }
+
+    public Product setRealCost(int realCost) {
+        this.realCost = realCost;
+        return this;
+    }
+
+    public int getDiscountCost() {
+        return discountCost;
+    }
+
+
+
+
 }
