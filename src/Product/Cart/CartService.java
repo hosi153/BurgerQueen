@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CartService {
-
     private final ArrayList<CartItem> items = new ArrayList<>();
     //주문한 메뉴를 담기 위한 CartItem 타입의 ArrayList 생성
     // ArrayList 필드도 private 타입 생성
@@ -44,5 +43,19 @@ public class CartService {
 
 
         return result;
-    }
-}
+    } //addToCart 종료
+
+    public void deleteItem(int number) {
+        items.remove(number - 1);
+        // 장바구니에 저장된 메뉴
+        // = CartItem 타입의 Items ArrayList
+        // ArrayList 내용 삭제 > 리스트명.remove(인덱스)
+        // 인덱스 = 0 부터 시작
+        // number -1 로 인덱스와 숫자 위치 맞춰줌
+        } //deleteItem 종료
+
+    public void clearCart(){
+        items.clear();
+    } //clearItem 종료
+
+}//public class CartService 종료
