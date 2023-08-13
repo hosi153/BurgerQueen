@@ -1,0 +1,12 @@
+package Promotion;
+
+import Cart.Cart;
+
+public class KidPromotion implements Promotion{
+    @Override
+    public void promotion() {
+        Cart.carts.add(new Cart("[프로모션]아이스크림",0,1));
+    }
+}
+
+
