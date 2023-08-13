@@ -1,6 +1,8 @@
 package Product;
 
 import Product.Cart.CartService;
+import Product.Order.OrderService;
+import Product.Order.Promotion;
 import Product.SubProduct.ProductData;
 import Product.Util.PrintUtil;
 
@@ -43,11 +45,20 @@ public class BurgerQueen {
                 System.out.println("서비스 종료");
                 System.exit(0);
 
+//            case "hidden":
+//                hiddenMenu();
+//                break;
+
             default:
                 System.out.println("잘못 입력했습니다.");
                 moveToMainMenu();
         }
     } //moveToMainMenu() 종료
+
+//    public void hiddenMenu(){
+//        ProductData.addMenu();
+//        moveToMainMenu();
+//    }
 
 
     public void selectMenu(){
@@ -99,6 +110,7 @@ public class BurgerQueen {
                 cartService.clearCart();
                 moveToCart();
             case "4": // 장바구니 상품 주문
+                promotionInfo();
 
             case "5":  //프로그램 종료
                 System.exit(0);
@@ -111,6 +123,39 @@ public class BurgerQueen {
 
 
     }//moveToCart 종료
+
+    private void promotionInfo(){
+        String number = PrintUtil.printPromotion(); //1~3 중에 고름
+
+
+        if (number.equals("1")||number.equals("2")||number.equals("3")){
+
+
+            int choice = PrintUtil.printOrder(cartService.getItem(), cartService.getSumOfTotalPrice(), Promotion.findPromo(Integer.parseInt(number)));
+
+            switch (choice){
+                case  1:
+                    System.out.println("주문서 출력");
+                    moveToMainMenu();
+                    break;
+                case 2:
+                    System.out.println("홈으로 돌아가기");
+                    moveToMainMenu();
+                    break;
+                default:
+                    System.out.println("잘못 입력했습니다.");
+                    promotionInfo();
+
+            }
+
+
+
+        }
+//        else {
+//            System.out.println("잘못 입력했습니다.");
+//            promotionInfo();
+//        }
+    }
 
 
     private void disconutInformation(){

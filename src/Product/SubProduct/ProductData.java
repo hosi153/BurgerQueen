@@ -4,8 +4,11 @@ import Product.Product;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ProductData {
+
+    private static Scanner sc = new Scanner(System.in);
 
 
 
@@ -36,6 +39,37 @@ public class ProductData {
             // 상위클래스 - Product
             // 하위클래스 3종
     );
+
+//    public static void addMenu(){
+//        System.out.println("카테고리를 선택합니다.");
+//        System.out.println("(1)_햄버거   (2)_사이드   (3)_음료   (4)_옵션");
+//        String input = sc.nextLine();
+//        switch (input){
+//            case "1":
+//                addHamburger();
+//            default:
+//                System.out.println("잘못입력했습니다.");
+//
+//        }
+//
+//
+//    }
+//    private static void addHamburger(){
+//        System.out.println("이름");
+//        String name = sc.nextLine();
+//        System.out.println("가격");
+//        String cost = sc.nextLine();
+//        System.out.println("칼로리");
+//        String kcal = sc.nextLine();
+////        products = new ArrayList<>(Arrays.asList(new Hamburger(0,name,Integer.parseInt(cost),Integer.parseInt(kcal),false,discountCost(),false)));
+//        products.add()
+//
+//
+//
+//
+//    }
+
+
 
     private static int discountCost(){
         return 500;

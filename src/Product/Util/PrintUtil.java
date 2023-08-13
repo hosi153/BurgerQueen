@@ -1,6 +1,8 @@
 package Product.Util;
 
 import Product.Cart.CartItem;
+
+import Product.Order.Promotion;
 import Product.Product;
 import Product.SubProduct.Drink;
 import Product.SubProduct.Hamburger;
@@ -9,6 +11,7 @@ import Product.SubProduct.Side;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class PrintUtil {
     static Scanner sc = new Scanner(System.in);
@@ -89,6 +92,7 @@ public class PrintUtil {
 
         }
         System.out.println("(1) 홈으로 돌아가기");
+        System.out.println();
         return sc.nextLine();
     }
 
@@ -142,6 +146,87 @@ public class PrintUtil {
                 product.getId(), product.getName(), product.getKcal(), product.getCost());
     }//printEachMenu 종료
 
+//    public static String printOrder
+
+    public static String printPromotion(){
+        System.out.println("프로모션 정보");
+        System.out.println("(1) 코드스테이 수강생 프로모션");
+        System.out.println("(2) 어린이 프로모션 )");
+        System.out.println("(3) 선택 안함 )");
+
+        return sc.nextLine();
+    } // printPromotion 종료
+
+
+
+    public static int printOrder(ArrayList<CartItem> items, int sumOfTotalPrice, Promotion promotion) { // CartItem이 담겨있는 ArrayList 사용, 전게 가격을 위한 int 사용
+        // BurgerQueen 클래스에서 사용할 메소드로 public 선택
+        //
+
+        System.out.println("주문번호 : " + (int)(Math.random()*100));
+        System.out.println("-".repeat(45));
+        System.out.println("[주문상품]");
+        System.out.println("-".repeat(45));
+        System.out.println("No  상품명\t\t단가\t\t 수량\t  금액");
+        //장바구니 내부 메뉴 출력
+
+        printOrderItem(items);
+        if ((promotion.getPROMOTION_NAME()) != null){System.out.println(promotion.getPROMOTION_NAME()+"\t0\t1\t0");}
+
+
+
+
+
+        //프로모 정보 추가
+
+        System.out.println("-".repeat(45));
+        System.out.printf("합계 : %d 원\n", sumOfTotalPrice);
+
+        System.out.println("(1)_주문하기");
+        System.out.println("(2)_돌아기기");
+        System.out.println();
+
+        return sc.nextInt();
+
+//        return sc.nextLine();
+        //장바구니를 보고 결정된 입력값을 반환
+    } //printCart 종료
+
+    private static void printOrderItem(ArrayList<CartItem> items) {
+        //장바구니 정보를 받아와서 상품 정보를 출력
+
+        int number = 1;
+        // 좌측 장바구니 넘버
+
+
+        for (CartItem cartItem : items) {
+            // CartItem 형의 cartItem 으로 items 순회
+            System.out.printf("%d  %-8s %6d %6d  %6d\n",
+                    number++,                   //번호
+                    cartItem.getProductName(),  //이름
+                    cartItem.getRealCost(),     //소비자가
+                    cartItem.getCount(),        //수량
+                    cartItem.getTotalPrice()    //총액
+            ); //순회하는 cartItem 필드 출력
+
+        }
+        System.out.println();
+    }//printCartItem 종료
+
+//
+//    public Order(int orderId, int paymentPrice, Promotion promotion) {
+//        this.orderId = orderId;
+//        this.paymentPrice = paymentPrice;
+//        this.promotion = promotion;
+//    }
+
+
+
+
+
+
+
+
 
     public static String printCart(ArrayList<CartItem> items, int sumOfTotalPrice) { // CartItem이 담겨있는 ArrayList 사용, 전게 가격을 위한 int 사용
         // BurgerQueen 클래스에서 사용할 메소드로 public 선택
@@ -162,6 +247,7 @@ public class PrintUtil {
         System.out.println("(3) 장바구니 비우기");
         System.out.println("(4) 장바구니 상품 주문");
         System.out.println("(5) 프로그램 종료");
+        System.out.println();
 
         return sc.nextLine();
         //장바구니를 보고 결정된 입력값을 반환
@@ -190,6 +276,7 @@ public class PrintUtil {
                     cartItem.getTotalPrice()    //총액
                     ); //순회하는 cartItem 필드 출력
         }
+        System.out.println();
     }//printCartItem종료
 
 
