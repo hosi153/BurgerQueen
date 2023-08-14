@@ -21,7 +21,8 @@ public class PrintUtil {
         System.out.println("(1) 메뉴 선택");
         System.out.println("(2) 장바구니");
         System.out.println("(3) 할인 정보");
-        System.out.println("(4) 프로그램 종료");
+        System.out.println("(4) 상품 주문");
+        System.out.println("(5) 프로그램 종료");
 
         return Integer.parseInt(input = sc.next());
     }
@@ -38,11 +39,15 @@ public class PrintUtil {
 
 
     }
+    public static int orderNumber(){
+        int num = (int) (Math.random() * 100 + 1);
+        return num;
+    }
 
 
     public static void printOrder() {
-        int num = (int) (Math.random() * 100 + 1);
-        System.out.println("주문 번호 : " + num);
+
+        System.out.println("주문 번호 : " + orderNumber());
         System.out.println("-".repeat(45));
         System.out.println("[주문 상품]");
         System.out.println("\t 상품명 \t\t\t\t단가\t\t수량\t\t금액");
@@ -53,13 +58,12 @@ public class PrintUtil {
 
     private static void orderList() {
         for (Cart cart : Cart.carts) {
-            System.out.printf("%10s\t\t\t%d\t\t%d\t\t%d\n",
+            System.out.printf("%10s\t\t\t%2d\t\t%2d\t\t%2d\n",
                     cart.getProductName(),
                     cart.getRealCost(),
                     cart.getCount(),
                     cart.getPrice()
             );
-
         }
     }
 
@@ -135,12 +139,12 @@ public class PrintUtil {
 
     }
 
-    public static int hiddenMenu(){
+    public static String hiddenMenu(){
         System.out.println("(1) 메뉴 추가");
         System.out.println("(2) 할인 금액 변경");
         System.out.println("(3) 복귀");
 
-        return sc.nextInt();
+        return sc.nextLine();
 
     }
     public static void discountChange(){
